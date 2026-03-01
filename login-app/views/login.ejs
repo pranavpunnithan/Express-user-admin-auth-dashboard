@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Login</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <h2>User Login</h2>
+
+        <form action="/login" method="POST">
+            <input type="email" name="email" placeholder="Enter Email" required>
+            <input type="password" name="password" placeholder="Enter Password" required>
+            <button type="submit">Login</button>
+        </form>
+
+        <p>Don't have an account? <a href="/signup">Signup</a></p>
+    </div>
+</div>
+
+<script>
+    window.addEventListener("pageshow", function (event) {
+        var nav = performance.getEntriesByType("navigation");
+        var isBackForward = nav.length > 0 && nav[0].type === "back_forward";
+        if (event.persisted || isBackForward) {
+            window.location.reload();
+        }
+    });
+</script>
+</body>
+</html>

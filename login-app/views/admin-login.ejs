@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <h2>Admin Login</h2>
+
+        <form action="/admin" method="POST">
+            <input type="email" name="email" placeholder="Enter Admin Email" required>
+            <input type="password" name="password" placeholder="Enter Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // If this page is restored from browser back-forward cache,
+    // reload so the server can apply current session redirects.
+    window.addEventListener("pageshow", function (event) {
+        var nav = performance.getEntriesByType("navigation");
+        var isBackForward = nav.length > 0 && nav[0].type === "back_forward";
+        if (event.persisted || isBackForward) {
+            window.location.reload();
+        }
+    });
+</script>
+
+</body>
+</html>
